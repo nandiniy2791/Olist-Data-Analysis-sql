@@ -1,0 +1,10 @@
+Relationships & constraints
+Relationships               mapping cardinality
+- customer placed orders    1:N
+- order has order_items     1:N
+- order_items has products  N:1
+- order has order_payments  1:N
+- order has order_reviews   1:1
+- order_items selled_by seller N:1
+- product translation product_category_name_translation  N:1
+geolocation dataset is a lookup dataset , used it using joins
