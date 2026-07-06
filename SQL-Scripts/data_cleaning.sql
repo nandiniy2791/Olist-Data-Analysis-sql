@@ -1,6 +1,4 @@
 
-
-
 /* SQL script to detect and remove duplicate customers while keeping the most recent record. */
 /* foreign key constraint problem is coming here */
 delete from customer where customer_id not in (
@@ -37,3 +35,12 @@ set customer_id = k.customer_id
 from keeper k join duplicates d on k.customer_unique_id = d.customer_unique_id
 where orders.customer_id = d.customer_id 
 
+/* Handling the nulls of reviews table */ 
+select count(*) from order_reviews where review_comment_message is null; 
+update order_reviews 
+set review_comment_title = 'no title'
+where review_comment_title is null;
+
+update order_reviews 
+set review_comment_message = 'no comments'
+where review_comment_message is null;
